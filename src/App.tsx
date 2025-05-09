@@ -1,35 +1,47 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from 'react';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [userName, setuserName] = useState('');
+  const [password, setPassword] = useState('');
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <div className='container mt-5'>
+        <h1 className='text-center display-4'>Welcome to SupplyChainX</h1>
+        <div className='row'>
+          <form className='col-md-4 offset-md-4'>
+            <div className='mb-3'>
+              <label htmlFor='username' className='form-label'>
+                Username
+              </label>
+              <input
+                type='text'
+                className='form-control'
+                id='username'
+                value={userName}
+                onChange={(e) => setuserName(e.target.value)}
+              />
+            </div>
+            <div className='mb-3'>
+              <label htmlFor='password' className='form-label'>
+                Password
+              </label>
+              <input
+                type='password'
+                className='form-control'
+                id='password'
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+            </div>
+            <button type='submit' className='btn btn-primary'>
+              Submit
+            </button>
+          </form>
+        </div>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
